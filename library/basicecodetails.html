@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Economics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .book-heading {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff6600;
+        }
+        .book-image {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            background: #f4f4f4;
+            border-radius: 5px;
+        }
+        .book-details {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .book-description {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input[type="date"],
+        .form-group input[type="time"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #cc5200;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="book-heading">Basic Economics</div>
+        <img src="/images/basiceco-removebg-preview.png" alt="Basic Economics" class="book-image">
+        <div class="book-details">
+            <p><strong>Author:</strong> Thomas Sowell</p>
+            <p><strong>Publication Date:</strong> 2004</p>
+        </div>
+        <div class="book-description">
+            <p>This book provides a comprehensive overview of economic principles and their application in real-world scenarios. Thomas Sowell explains complex economic concepts in an accessible manner, making it a valuable resource for both beginners and experienced readers.</p>
+        </div>
+        <form action="submit-return-date.php" method="post">
+            <div class="form-group">
+                <label for="return-date">Return Date</label>
+                <input type="date" id="return-date" name="return-date" required>
+            </div>
+            <div class="form-group">
+                <label for="return-time">Return Time</label>
+                <input type="time" id="return-time" name="return-time" required>
+            </div>
+            <button type="submit">Submit Return Details</button>
+        </form>
+    </div>
+</body>
+</html>

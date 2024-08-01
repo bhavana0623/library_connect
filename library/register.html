@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.left-side, .right-side {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+.logo span {
+    font-size: 36px;
+    color: #ff6600;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.register-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.right-side {
+    padding: 40px;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #cc5200;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-link p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+</style>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div class="logo">
+                <span>&lt;</span>
+                <h1>LibraryConnect</h1>
+            </div>
+            <div class="image-container">
+                <img src="./images/registerillu.png" alt="Library Image" class="register-image">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="register-container">
+                <h2>Register</h2>
+                <form action="register.php" method="post">
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Contact Number</label>
+                        <input type="text" id="contact" name="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+                <div class="login-link">
+                    <p>Already have an account? <a href="login.html">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

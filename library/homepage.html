@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraryConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional Styles for Homepage */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #ff6600;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .hero {
+            background: url('library-hero.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 3s ease-in-out;
+        }
+        
+        .search-bar {
+            margin: 2rem auto;
+            max-width: 600px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-bar input {
+            border: none;
+            padding: 0.5rem;
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        .search-bar button {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .search-bar button:hover {
+            background: #cc5200;
+        }
+        
+        .featured-books {
+            padding: 3rem 0;
+        }
+        
+        .featured-books h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 0 2rem;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .book-card img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .book-card h3 {
+            margin: 1rem 0;
+            font-size: 1.25rem;
+        }
+        
+        .book-card p {
+            color: #666;
+        }
+        
+        .book-card a {
+            display: inline-block;
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .book-card a:hover {
+            background: #cc5200;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .fun-facts {
+            background: #f4f4f4;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .fun-facts h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .fun-facts p {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">LibraryConnect</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="container">
+            <h1>Discover Your Next Great Read</h1>
+            <p>Explore our collection of books and find your next favorite!</p>
+        </div>
+    </section>
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search for books..." onkeyup="searchBooks()">
+        <button onclick="searchBooks()">Search</button>
+    </div>
+    <section class="featured-books">
+        <div class="container">
+            <h2>Featured Books</h2>
+            <div class="book-grid" id="book-grid">
+                <!-- Book Cards -->
+                <div class="book-card" data-title="Think and Grow Rich" data-author="Napoleon Hill">
+                    <img src="./images/thinkand.png" alt="Think and Grow Rich">
+                    <h3>Think and Grow Rich</h3>
+                    <p>Author: Napoleon Hill</p>
+                    <p>Publication Date: 1937</p>
+                    <a href="thinkdetails.html">Borrow</a>
+                </div>
+                <div class="book-card" data-title="Security Analysis" data-author="Benjamin Graham and David Dodd">
+                    <img src="./images/security.png" alt="Security Analysis">
+                    <h3>Security Analysis</h3>
+                    <p>Author: Benjamin Graham and David Dodd</p>
+                    <p>Publication Date: 1934</p>
+                    <a href="security-analysis.html">Borrow</a>
+                </div>
+                
+                <div class="book-card" data-title="The Hobbit" data-author="J.R.R. Tolkien">
+                    <img src="./images/hobbit-removebg-preview.png" alt="The Hobbit">
+                    <h3>The Hobbit</h3>
+                    <p>Author: J.R.R. Tolkien</p>
+                    <p>Publication Date: 1937</p>
+                    <a href="the-hobbit.html">Borrow</a>
+                </div>
+                <div class="book-card" data-title="Basic Economics" data-author="Thomas Sowell">
+                    <img src="./images/basiceco-removebg-preview.png" alt="Basic Economics">
+                    <h3>Basic Economics</h3>
+                    <p>Author: Thomas Sowell</p>
+                    <p>Publication Date: 2000</p>
+                    <a href="basic-economics.html">Borrow</a>
+                </div>
+                <div class="book-card" data-title="The Lord of the Rings" data-author="J.R.R. Tolkien">
+                    <img src="./images/lordofrings-removebg-preview.png" alt="The Lord of the Rings">
+                    <h3>The Lord of the Rings</h3>
+                    <p>Author: J.R.R. Tolkien</p>
+                    <p>Publication Date: 1954</p>
+                    <a href="the-lord-of-the-rings.html">Borrow</a>
+                </div>
+                <div class="book-card" data-title="The Alchemist" data-author="Paulo Coelho">
+                    <img src="./images/thealchemist-removebg-preview.png" alt="The Alchemist">
+                    <h3>The Alchemist</h3>
+                    <p>Author: Paulo Coelho</p>
+                    <p>Publication Date: 1988</p>
+                    <a href="the-alchemist.html">Borrow</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="fun-facts">
+        <div class="container">
+            <h2>Did You Know?</h2>
+            <p>Reading can reduce stress by up to 68%.</p>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p id="footer-quote">“The only thing that you absolutely have to know, is the location of the library.” – Albert Einstein</p>
+        </div>
+    </footer>
+
+    <script>
+        function searchBooks() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const cards = document.querySelectorAll('.book-card');
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                const author = card.getAttribute('data-author').toLowerCase();
+
+                if (title.includes(input) || author.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
